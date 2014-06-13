@@ -1,10 +1,21 @@
 <section>
-  <h2>Hello! What is your name?</h2>
-  <form class="form-inline">
-    <fieldset>
-       <label>Name</label>
-       <input type="text" data-bind="value: name, valueUpdate: 'afterkeydown'"/>
-       <button type="submit" class="btn" data-bind="click: sayHello, enable: name">Click Me</button>
-    </fieldset>
-  </form>
+	<h2>Code Metrics</h2>
+	<!--
+	<div class="row-fluid">
+		<ul data-bind="foreach: metricsData">
+			<li>
+				ID: <span data-bind="text: ID"></span><br>
+				Name: <span data-bind="text: Name"></span><br>
+				Timestamp: <span data-bind="text: TimeStamp"></span><br>
+			</li>
+		</ul>
+	</div>-->
+	<input id="filter">
+	<table data-bind="foreach: metricsData">
+        <tr >
+			<td>ID: <a data-bind="href: ID"><span data-bind="text: ID"></span></a></td>
+			<td><span data-bind="text: Name"></span>
+			<td>Timestamp: <span data-bind="text: TimeStamp"></span></td>
+        </tr>
+    </table>
 </section>

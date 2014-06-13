@@ -1,11 +1,17 @@
 define(function (require) {
-  var app = require('durandal/app'),
-      ko = require('knockout');
- 
-  return {
-     name: ko.observable(),
-     sayHello: function() {
-       app.showMessage('Hello ' + this.name() + '! Nice to meet you.', 'Greetings');
-     }
-   };
+	var http = require('plugins/http'),
+		ko = require('knockout');
+
+	var url = 'http://esebsmw9004.eemea.ericsson.se/metricsweb/api/metricsapi?latestonly=true';
+
+	return {
+		metricsData: ko.observableArray([]),
+		activate: function () {
+			var that = this;
+
+	   		return http.get(url).then(function(response) {
+    	  		that.metricsData(response);
+       		});
+    	}
+	};
 });
