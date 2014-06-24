@@ -9,14 +9,12 @@
     	<li><b>Name: </b><span data-bind="text: Name"></span></li>
 		<li>FileVersion: <span data-bind="text: FileVersion"></span></li>
 		<li>AssemblyVersion: <span data-bind="text: AssemblyVersion"></span></li>
-		<li>
-			<ul data-bind="foreach: Metrics">
-				<li>ClassCoupling: <span data-bind="text: ClassCoupling"></span>
-				<li>CyclomaticComplexity:  <span data-bind="text: CyclomaticComplexity"></span>
-				<li>DepthOfInheritance: <span data-bind="text: DepthOfInheritance"></span>
-				<li>LinesOfCode: <span data-bind="text: LinesOfCode"></span>
-				<li>MaintainabilityIndex: <span data-bind="text: MaintainabilityIndex"></span>
+			<ul>
+				<li>ClassCoupling: <span data-bind="text: Metrics.ClassCoupling"></span>
+				<li>CyclomaticComplexity:  <span data-bind="text: Metrics.CyclomaticComplexity"></span>
+				<li>DepthOfInheritance: <span data-bind="text: Metrics.DepthOfInheritance"></span>
+				<li>LinesOfCode: <span data-bind="text: Metrics.LinesOfCode"></span>
+				<li>MaintainabilityIndex: <span data-bind="text: Metrics.MaintainabilityIndex"></span>
 			</ul>
-			</li>
 	</ul>
 </section>
