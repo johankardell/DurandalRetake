@@ -16,11 +16,7 @@ define(function (require) {
 	   			that.details.TimeStamp = response.TimeStamp;
 
 	   			for(var i=0;i<response.Modules.length;i++){
-	   				var module = response.Modules[i];
-	   				//module.Metrics = response.Modules[i].Metrics;
-	   				/*var currentModule = ko.observable();
-	   				currentModule.Metrics = ko.observable(module.Metrics);*/
-	   				
+	   				var module = response.Modules[i];	   				
 	   				that.details.Modules.push(module);
 	   			}
     	  	})
