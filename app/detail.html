@@ -5,12 +5,18 @@
 	Timestamp: <span data-bind="text: details.TimeStamp"></span><br>
 
 	<h3>Modules</h3>
-	<table data-bind="foreach: details.Modules">
-        <tr >
-			<td><b>ID: </b><span data-bind="text: ID"></td>
-			<td><b>FileVersion: </b><span data-bind="text: FileVersion"></span></td>
-			<td><b>AssemblyVersion: </b><span data-bind="text: AssemblyVersion"></span></td>
-			<td><b>Name: </b><span data-bind="text: Name"></span></td>
-        </tr>
-    </table>
+	<ul data-bind="foreach: details.Modules">
+    	<li><b>Name: </b><span data-bind="text: Name"></span></li>
+		<li>FileVersion: <span data-bind="text: FileVersion"></span></li>
+		<li>AssemblyVersion: <span data-bind="text: AssemblyVersion"></span></li>
+		<li>
+			<ul data-bind="foreach: Metrics">
+				<li>ClassCoupling: <span data-bind="text: ClassCoupling"></span>
+				<li>CyclomaticComplexity:  <span data-bind="text: CyclomaticComplexity"></span>
+				<li>DepthOfInheritance: <span data-bind="text: DepthOfInheritance"></span>
+				<li>LinesOfCode: <span data-bind="text: LinesOfCode"></span>
+				<li>MaintainabilityIndex: <span data-bind="text: MaintainabilityIndex"></span>
+			</ul>
+			</li>
+	</ul>
 </section>
