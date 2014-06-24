@@ -2,26 +2,21 @@ define(function (require) {
 	var http = require('plugins/http'),
 		ko = require('knockout');
 
-	var url = 'http://esebsmw9004.eemea.ericsson.se/metricsweb/api/metricsapi/'
-	
-	var Details = function(detailDTO) {
-		this.ID = ko.observable(detailDTO.ID);
-	}
+	var url = 'http://esebsmw9004.eemea.ericsson.se/metricsweb/api/metricsapi/';
 
 	return {
 		activate: function (context) {
 			var that = this;
+			that.details = ko.observable();
+			that.details.Modules = ko.observableArray([]);
 
 	   		return http.get(url + context).then(function(response) {
-    	  		//that.metricsDetails = ko.observable(response);
-    	  		that.metricsDetails = ko.observable(new Details(response));
+	   			that.details.ID = response.ID;
+	   			that.details.Name = response.Name;
+	   			that.details.TimeStamp = response.TimeStamp;
 
-    	  		//that.ID = ko.observable(response.ID);
-   				
-   				//that.click = function(){
-				//	alert('Something was changed....');
-				//}
-       		});
-    	}
+	   			that.details.Modules(response.Modules);
+    	  	})
+	   	}
 	};
 });

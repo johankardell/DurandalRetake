@@ -1,9 +1,16 @@
 <section>
 	<h2>Detail</h2>
-	ID: <input data-bind="value: metricsDetails().ID()"/><br>
-	ID: <span data-bind="text: metricsDetails().ID()"></span><br>
-	Name: <span data-bind="text: metricsDetails().Name()"></span><br>
-	Timestamp: <span data-bind="text: metricsDetails().TimeStamp()"></span><br>
-</section>
+	ID: <span data-bind="text: details.ID"></span><br>
+	Name: <span data-bind="text: details.Name"></span><br>
+	Timestamp: <span data-bind="text: details.TimeStamp"></span><br>
 
-<input type="button" data-bind="click: click"></input>
+	<h3>Modules</h3>
+	<table data-bind="foreach: details.Modules">
+        <tr >
+			<td><b>ID: </b><span data-bind="text: ID"></td>
+			<td><b>FileVersion: </b><span data-bind="text: FileVersion"></span></td>
+			<td><b>AssemblyVersion: </b><span data-bind="text: AssemblyVersion"></span></td>
+			<td><b>Name: </b><span data-bind="text: Name"></span></td>
+        </tr>
+    </table>
+</section>
